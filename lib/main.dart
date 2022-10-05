@@ -41,12 +41,37 @@ class _HomeState extends State<Home> {
       body: Container(
         child: _todoItems.isNotEmpty
             ? ListView.builder(
-                padding: const EdgeInsets.only(right: 50, left: 50, top: 100),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10.0),
                 itemCount: _todoItems.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title: Center(child: Text(_todoItems[index])),
-                    tileColor: index % 2 == 0 ? Colors.blue : Colors.blue[100],
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: ListTile(
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10.0),
+                        leading: Container(
+                          padding: const EdgeInsets.only(right: 12),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                                right:
+                                    BorderSide(width: 1, color: Colors.white)),
+                          ),
+                          child: CircleAvatar(
+                            child: Text(
+                              (index + 1).toString(),
+                              style: const TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        ),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)),
+                        title: Text(
+                          _todoItems[index],
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
+                        tileColor: Colors.blue),
                   );
                 },
               )
