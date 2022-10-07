@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_todo_list/widgets/task_tile.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -38,40 +39,7 @@ class _HomeState extends State<Home> {
                       horizontal: 20, vertical: 10.0),
                   itemCount: todoItems.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 10.0),
-                      child: ListTile(
-                          onTap: () {
-                            print('CRICOU NA TASK ${todoItems[index]}');
-                            Navigator.pushNamed(context, '/newTask',
-                                arguments: todoItems[index]);
-                          },
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10.0),
-                          leading: Container(
-                            padding: const EdgeInsets.only(right: 12),
-                            decoration: const BoxDecoration(
-                              border: Border(
-                                  right: BorderSide(
-                                      width: 1, color: Colors.white)),
-                            ),
-                            child: CircleAvatar(
-                              child: Text(
-                                (index + 1).toString(),
-                                style: const TextStyle(fontSize: 20),
-                              ),
-                            ),
-                          ),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          title: Text(
-                            todoItems[index],
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          tileColor: Colors.blue),
-                    );
+                    return TaskTile(todoList: todoItems, index: index);
                   },
                 ),
               )
