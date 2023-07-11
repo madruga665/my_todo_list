@@ -17,8 +17,7 @@ class _TaskTileState extends State<TaskTile> {
       padding: const EdgeInsets.only(bottom: 15.0),
       child: ListTile(
           onTap: () {
-            print('CRICOU NA TASK ${widget.todoList[widget.index]}');
-            Navigator.pushNamed(context, '/newTask',
+            Navigator.pushNamed(context, '/taskDetails',
                 arguments: widget.todoList[widget.index]);
           },
           contentPadding:
@@ -43,6 +42,5 @@ class _TaskTileState extends State<TaskTile> {
           ),
           tileColor: Colors.blue),
     );
-    ;
   }
 }

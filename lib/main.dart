@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_todo_list/screens/home_screen.dart';
 import 'package:my_todo_list/screens/new_task.dart';
+import 'package:my_todo_list/screens/task_details.dart';
 
 void main() {
   runApp(const TodoList());
@@ -21,7 +22,8 @@ class _TodoListState extends State<TodoList> {
       initialRoute: '/home',
       routes: {
         '/home': (context) => const Home(),
-        '/newTask': (context) => const NewTask()
+        '/newTask': (context) => const NewTask(),
+        '/taskDetails': (context) => const TaskDetails()
       },
     );
   }
